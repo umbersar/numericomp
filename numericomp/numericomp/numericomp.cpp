@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "numericomp.h"
+
 
 
 // This is an example of an exported variable

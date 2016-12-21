@@ -23,7 +23,6 @@ extern NUMERICOMP_API int nnumericomp;
 
 NUMERICOMP_API int fnnumericomp(void);
 
-template<class T>
 class NUMERICOMP_API Matrix
 {
 public:
@@ -34,8 +33,8 @@ public:
 	int Rows()const;
 	int Columns()const;
 
-	T operator()(int row, int column) const;
-	T& operator()(int row, int column);
+	double operator()(int row, int column) const;
+	double& operator()(int row, int column);
 
 private:
 	size_t nRows;
@@ -43,6 +42,6 @@ private:
 
 	//using new causes initialization of memory(in this case to 0). so would have to use somethig else. Should I use STL allocator class to do memory
 	//allocations. malloc in c did not inititialize memory.
-	std::vector<T> data;
+	std::vector<double> data;
 
 };

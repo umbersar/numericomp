@@ -23,18 +23,43 @@ extern NUMERICOMP_API int nnumericomp;
 
 NUMERICOMP_API int fnnumericomp(void);
 
-class NUMERICOMP_API Matrix
+//template class not marked by NUMERICOMP_API but still works
+template<class T>
+class Matrix
 {
 public:
-	Matrix(const size_t& rows, const size_t& columns);
-	~Matrix();
+	Matrix(const size_t& rows, const size_t& columns) 
+		:nRows(rows), nColumns(columns), data(rows*columns, NAN)
+	{
+
+	}
+
+	~Matrix() {
+
+	}
 
 	//transpose,multiply ,+,- operator
-	int Rows()const;
-	int Columns()const;
+	int Rows()const {
+		return nRows;
+	}
 
-	double operator()(int row, int column) const;
-	double& operator()(int row, int column);
+	int Columns()const {
+		return nColumns;
+	}
+
+	T operator()(int row, int column) const {
+		if (row >= nRows || column >= nColumns)
+			throw std::out_of_range("Matrix subscript out of bounds");
+
+		return data[row*nColumns + column];
+	}
+
+	T& operator()(int row, int column) {
+		if (row >= nRows || column >= nColumns)
+			throw std::out_of_range("Matrix subscript out of bounds");
+
+		return data[row*nColumns + column];
+	}
 
 private:
 	size_t nRows;
@@ -42,6 +67,5 @@ private:
 
 	//using new causes initialization of memory(in this case to 0). so would have to use somethig else. Should I use STL allocator class to do memory
 	//allocations. malloc in c did not inititialize memory.
-	std::vector<double> data;
-
+	std::vector<T> data;
 };

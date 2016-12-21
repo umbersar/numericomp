@@ -15,7 +15,7 @@ namespace numericompTest
 			int matrixRows = 4;
 			int	matrixColumns = 4;
 
-			Matrix mat(matrixRows, matrixColumns);
+			Matrix<double> mat(matrixRows, matrixColumns);
 
 			for (int i = 0; i < matrixRows; i++)
 				for (int j = 0; j < matrixColumns; j++)

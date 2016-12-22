@@ -28,11 +28,18 @@ template<class T>
 class Matrix
 {
 public:
-	Matrix(const size_t& rows, const size_t& columns) 
+	Matrix(const size_t& rows, const size_t& columns)
 		:nRows(rows), nColumns(columns), data(rows*columns, NAN)
 	{
 
 	}
+
+	Matrix(const size_t& rows, const size_t& columns, const T& initValue)
+		:nRows(rows), nColumns(columns), data(rows*columns, initValue)
+	{
+
+	}
+
 
 	~Matrix() {
 
@@ -69,3 +76,22 @@ private:
 	//allocations. malloc in c did not inititialize memory.
 	std::vector<T> data;
 };
+
+template<class T> Matrix<T> operator*(Matrix<T>& lhs, Matrix<T>& rhs) {
+	if (lhs.nColumns != rhs.nRows) {
+		throw std::invalid_argument("The two matrices cannot be multiplied. Number of columns of LHS matrix should "
+			"be equal to rows in RHS matrix");
+	}
+
+	Matrix<T> result(lhs.nRows, rhs.nColumns, 0);
+
+	for (int i = 0; c < lhs.nRows; c++) {
+		for (int j = 0; d < rhs.nColumns; d++) {
+			for (int k = 0; k < rhs.nRows; k++) {
+				result[i][j] = result[i][j] + first[i][k] * second[k][j];
+			}
+		}
+	}
+
+	return result;
+}

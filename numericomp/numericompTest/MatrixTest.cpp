@@ -15,11 +15,17 @@ namespace numericompTest
 			int matrixRows = 4;
 			int	matrixColumns = 4;
 
-			Matrix<double> mat(matrixRows, matrixColumns);
+			Matrix<double> mat1(matrixRows, matrixColumns);
 
 			for (int i = 0; i < matrixRows; i++)
 				for (int j = 0; j < matrixColumns; j++)
-					Assert::IsTrue(isnan(mat(i, j)));
+					Assert::IsTrue(isnan(mat1(i, j)));
+
+			Matrix<double> mat2(matrixRows, matrixColumns, 0);
+
+			for (int i = 0; i < matrixRows; i++)
+				for (int j = 0; j < matrixColumns; j++)
+					Assert::AreEqual(mat2(i, j), 0.0, L"Not equal");
 		}
 
 	};

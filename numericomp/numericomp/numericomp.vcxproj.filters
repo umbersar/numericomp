@@ -27,13 +27,16 @@
     <ClInclude Include="numericomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixDynMemory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MatrixAllocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MatrixVec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixDynMemoryNew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixDynMemoryMalloc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

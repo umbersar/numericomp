@@ -16,8 +16,7 @@ public:
 	{
 
 	}
-
-
+	
 	~Matrix() {
 
 	}
@@ -48,9 +47,8 @@ public:
 private:
 	size_t nRows;
 	size_t nColumns;
-
-	//using new causes initialization of memory(in this case to 0). so would have to use somethig else. Should I use STL allocator class to do memory
-	//allocations. malloc in c did not inititialize memory.
+	
+	//Using STL vector. 
 	std::vector<T> data;
 };
 

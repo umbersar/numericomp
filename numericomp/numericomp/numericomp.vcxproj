@@ -150,7 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MatrixAllocator.h" />
-    <ClInclude Include="MatrixDynMemory.h" />
+    <ClInclude Include="MatrixDynMemoryMalloc.h" />
+    <ClInclude Include="MatrixDynMemoryNew.h" />
     <ClInclude Include="MatrixVec.h" />
     <ClInclude Include="numericomp.h" />
     <ClInclude Include="stdafx.h" />

@@ -78,17 +78,17 @@ private:
 };
 
 template<class T> Matrix<T> operator*(Matrix<T>& lhs, Matrix<T>& rhs) {
-	if (lhs.nColumns != rhs.nRows) {
+	if (lhs.Columns() != rhs.Rows()) {
 		throw std::invalid_argument("The two matrices cannot be multiplied. Number of columns of LHS matrix should "
 			"be equal to rows in RHS matrix");
 	}
 
-	Matrix<T> result(lhs.nRows, rhs.nColumns, 0);
+	Matrix<T> result(lhs.Rows(), rhs.Columns(), 0);
 
-	for (int i = 0; c < lhs.nRows; c++) {
-		for (int j = 0; d < rhs.nColumns; d++) {
-			for (int k = 0; k < rhs.nRows; k++) {
-				result[i][j] = result[i][j] + first[i][k] * second[k][j];
+	for (int i = 0; i < lhs.Rows(); i++) {
+		for (int j = 0; j < rhs.Columns(); j++) {
+			for (int k = 0; k < rhs.Rows(); k++) {
+				result(i, j) = result(i, j) + lhs(i, k) * rhs(k, j);
 			}
 		}
 	}

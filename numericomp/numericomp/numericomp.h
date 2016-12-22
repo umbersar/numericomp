@@ -26,3 +26,4 @@ NUMERICOMP_API int fnnumericomp(void);
 #include"MatrixVec.h"
 #include"MatrixDynMemoryNew.h"
 #include"MatrixDynMemoryMalloc.h"
+#include"MatrixDynMemoryAllocator.h"

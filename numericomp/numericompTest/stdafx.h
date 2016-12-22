@@ -11,3 +11,13 @@
 #include "CppUnitTest.h"
 
 // TODO: reference additional headers your program requires here
+#include<fstream>
+
+#include "..\numericomp\numericomp.h"
+#include<vector>
+
+#include <boost/timer/timer.hpp>
+#include <boost/chrono.hpp>
+
+#include <Eigen/Dense>
+
